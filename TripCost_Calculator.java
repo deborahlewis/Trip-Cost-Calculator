@@ -1,6 +1,7 @@
 /*
  * Deborah Lewis
  * August 11, 2016
+ * Updated: Aug 21, 2016
  * 
  * This program requests the current gas price and mileage of trip
  * then calculates the cost of the trip for the car and the van.
@@ -18,23 +19,20 @@ public class TripCost_Calculator {
         //variables
         int milesToDrive;
         double gasPrice;
+        double milesPerGallon;
         
-        final int milesPerGallonVan = 22;
-        final int milesPerGallonCar = 29;
-        
-        double costOfTripVan;
-        double costOfTripCar;
+        double costOfTrip;
         
         //user input
         gasPrice = Double.parseDouble(JOptionPane.showInputDialog(null, "Enter current gas price: "));
+        milesPerGallon = Double.parseDouble(JOptionPane.showInputDialog(null, "Please enter your vehicle's fuel economy is avg MPG: "));
         milesToDrive = Integer.parseInt(JOptionPane.showInputDialog(null, "How many miles will you drive: "));
         
         //calculations
-        costOfTripVan = (milesToDrive * gasPrice) / milesPerGallonVan;
-        costOfTripCar = (milesToDrive * gasPrice) / milesPerGallonCar;
+        costOfTrip = (milesToDrive * gasPrice) / milesPerGallon;
         
         NumberFormat twoDecimals = new DecimalFormat("#0.00");
-        JOptionPane.showMessageDialog(null, "Cost of Trip\n\nCAR: $" + twoDecimals.format(costOfTripCar) + "\nVAN: $" + twoDecimals.format(costOfTripVan));
+        JOptionPane.showMessageDialog(null, "Cost of Trip: $" + twoDecimals.format(costOfTrip));
         
     }
     
